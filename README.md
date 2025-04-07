@@ -26,9 +26,52 @@ becomes C. To change a message back, each letter is replaced by the one three be
 ### STEP-4: Else subtract the key from the plain text.
 ### STEP-5: Display the cipher text obtained above.
 
+# Name: Muthulakshmi D
+reg : 212223040122
 
-PROGRAM :-
+## PROGRAM :-
+```
+def encrypt(text, key):
+    cipher = ""
+    for char in text:
+        if char.isupper():
+            cipher += chr((ord(char) - ord('A') + key) % 26 + ord('A'))
+        elif char.islower():
+            cipher += chr((ord(char) - ord('a') + key) % 26 + ord('a'))
+        else:
+            cipher += char
+    return cipher
+
+def decrypt(cipher, key):
+    plain = ""
+    for char in cipher:
+        if char.isupper():
+            plain += chr((ord(char) - ord('A') - key) % 26 + ord('A'))
+        elif char.islower():
+            plain += chr((ord(char) - ord('a') - key) % 26 + ord('a'))
+        else:
+            plain += char
+    return plain
+
+# Taking input
+plain_text = input("Enter the plain text: ")
+key = int(input("Enter the key value: "))
+
+# Encryption
+cipher_text = encrypt(plain_text, key)
+print("\nPLAIN TEXT:", plain_text)
+print("\nENCRYPTED TEXT:", cipher_text)
+
+# Decryption
+decrypted_text = decrypt(cipher_text, key)
+print("\nAFTER DECRYPTION:", decrypted_text)
+```
 
 
 
-OUTPUT :-
+## OUTPUT :-
+![424300351-ac014035-f555-41ff-a376-c4242a18c148](https://github.com/user-attachments/assets/9be8a407-308b-4019-b2e6-fc2be42d559e)
+
+
+## RESULT:
+The program is executed successfully
